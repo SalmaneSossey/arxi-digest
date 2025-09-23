@@ -145,15 +145,15 @@ const DiscoverTab = ({ onSubscribe, onSendToTelegram }: DiscoverTabProps) => {
   }, [loadMore]);
 
   const renderEmptyState = () => (
-    <Card className="shadow-soft">
+    <Card className="shadow-soft border-sky-light/20 bg-gradient-to-br from-cloud-white to-sky-light/10">
       <CardContent className="flex flex-col items-center justify-center py-16">
-        <div className="w-16 h-16 bg-academic-indigo-100 rounded-full flex items-center justify-center mb-4">
-          <Search className="w-8 h-8 text-academic-indigo-600" />
+        <div className="w-16 h-16 bg-gradient-to-br from-sky-light to-accent rounded-full flex items-center justify-center mb-4 shadow-soft">
+          <Search className="w-8 h-8 text-sky-deep" />
         </div>
-        <h3 className="text-lg font-semibold text-academic-slate-900 mb-2">
+        <h3 className="text-lg font-semibold text-text-primary mb-2">
           Discover Latest Papers
         </h3>
-        <p className="text-academic-slate-600 text-center mb-6 max-w-md">
+        <p className="text-text-secondary text-center mb-6 max-w-md">
           Search for papers by topic, author, or keywords to find the newest research in your field.
         </p>
       </CardContent>
@@ -163,18 +163,18 @@ const DiscoverTab = ({ onSubscribe, onSendToTelegram }: DiscoverTabProps) => {
   const renderSkeletons = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
       {Array.from({ length: 6 }).map((_, i) => (
-        <Card key={i} className="shadow-card">
+        <Card key={i} className="shadow-card border-sky-light/20 bg-gradient-to-br from-cloud-white to-sky-light/10">
           <CardContent className="p-6">
-            <Skeleton className="h-6 w-full mb-3" />
-            <Skeleton className="h-4 w-2/3 mb-4" />
+            <Skeleton className="h-6 w-full mb-3 bg-sky-light/30" />
+            <Skeleton className="h-4 w-2/3 mb-4 bg-sky-light/20" />
             <div className="flex gap-2 mb-4">
-              <Skeleton className="h-5 w-12" />
-              <Skeleton className="h-5 w-16" />
+              <Skeleton className="h-5 w-12 bg-sky-light/20" />
+              <Skeleton className="h-5 w-16 bg-sky-light/20" />
             </div>
-            <Skeleton className="h-20 w-full mb-4" />
+            <Skeleton className="h-20 w-full mb-4 bg-sky-light/20" />
             <div className="flex gap-2">
-              <Skeleton className="h-8 w-16" />
-              <Skeleton className="h-8 w-20" />
+              <Skeleton className="h-8 w-16 bg-sky-light/20" />
+              <Skeleton className="h-8 w-20 bg-sky-light/20" />
             </div>
           </CardContent>
         </Card>
@@ -228,7 +228,7 @@ const DiscoverTab = ({ onSubscribe, onSendToTelegram }: DiscoverTabProps) => {
 
       {papers.length > 0 && !hasMore && (
         <div className="text-center py-8">
-          <p className="text-academic-slate-600">That's all for now!</p>
+          <p className="text-text-secondary">That's all for now! ✨</p>
         </div>
       )}
     </div>

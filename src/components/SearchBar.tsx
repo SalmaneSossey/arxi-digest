@@ -35,23 +35,23 @@ const SearchBar = ({ onSearch, placeholder = "e.g., vision transformer, RAG, dif
   return (
     <div className="w-full space-y-4">
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-academic-slate-600" />
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-text-secondary" />
         <Input
           type="text"
           placeholder={placeholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="pl-10 h-12 text-base border-academic-slate-600/20 focus:border-primary focus:ring-primary/20"
+          className="pl-10 h-12 text-base border-sky-light/50 focus:border-sky-blue focus:ring-sky-blue/20 bg-gradient-to-r from-cloud-white to-sky-light/20"
         />
       </div>
       
       <div className="flex flex-wrap gap-2">
-        <span className="text-sm text-academic-slate-600 self-center">Popular topics:</span>
+        <span className="text-sm text-text-secondary self-center">Popular topics:</span>
         {SAMPLE_TOPICS.map((topic) => (
           <Badge
             key={topic}
             variant="outline"
-            className="cursor-pointer bg-academic-slate-50 text-academic-slate-700 border-academic-slate-600/20 hover:bg-academic-indigo-100 hover:text-academic-indigo-700 hover:border-academic-indigo-600/30 transition-smooth"
+            className="cursor-pointer bg-gradient-to-r from-sky-light/50 to-cloud-soft text-sky-deep border-sky-light/30 hover:from-sunset-pink/20 hover:to-sunset-orange/20 hover:text-sunset-orange hover:border-sunset-orange/50 transition-smooth transform hover:scale-105"
             onClick={() => handleTopicClick(topic)}
           >
             {topic}

@@ -25,17 +25,17 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-dawn">
       <HeaderBar />
       
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-academic-slate-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-4">
               Discover Latest Academic Papers
             </h1>
-            <p className="text-lg text-academic-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
               Stay up-to-date with cutting-edge research from arXiv. Search papers, 
               create subscriptions, and receive curated digests directly in Telegram.
             </p>
@@ -43,16 +43,16 @@ const Index = () => {
 
           {/* Main Tabs */}
           <Tabs defaultValue="discover" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8 bg-academic-slate-100">
+            <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8 bg-gradient-to-r from-cloud-soft to-sky-light/50 border border-sky-light/30 shadow-soft">
               <TabsTrigger 
                 value="discover" 
-                className="data-[state=active]:bg-background data-[state=active]:text-academic-slate-900 text-academic-slate-600"
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cloud-white data-[state=active]:to-sky-light/20 data-[state=active]:text-text-primary data-[state=active]:shadow-soft text-text-secondary transition-smooth"
               >
                 Discover
               </TabsTrigger>
               <TabsTrigger 
                 value="subscriptions"
-                className="data-[state=active]:bg-background data-[state=active]:text-academic-slate-900 text-academic-slate-600"
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cloud-white data-[state=active]:to-sky-light/20 data-[state=active]:text-text-primary data-[state=active]:shadow-soft text-text-secondary transition-smooth"
               >
                 Subscriptions
               </TabsTrigger>
@@ -73,10 +73,13 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-academic-slate-600/10 mt-16">
+      <footer className="border-t border-sky-light/30 mt-16 bg-gradient-to-r from-cloud-white/50 to-sky-light/20">
         <div className="container mx-auto px-4 py-6">
-          <div className="text-center text-sm text-academic-slate-600">
-            ScholarBrief v1.0.0 • Academic paper discovery platform
+          <div className="text-center text-sm text-text-secondary">
+            <span className="bg-gradient-to-r from-sky-deep to-sky-twilight bg-clip-text text-transparent font-medium">
+              ScholarBrief
+            </span>{" "}
+            v1.0.0 • Academic paper discovery platform ✨
           </div>
         </div>
       </footer>
@@ -89,7 +92,7 @@ const Index = () => {
           setShowNewSubscription(false);
           setSubscriptionTopic("");
           toast({
-            title: "Subscription created!",
+            title: "Subscription created! ✨",
             description: "You'll start receiving paper digests soon",
           });
         }}

@@ -51,19 +51,27 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        academic: {
-          slate: {
-            50: "hsl(var(--academic-slate-50))",
-            100: "hsl(var(--academic-slate-100))",
-            600: "hsl(var(--academic-slate-600))",
-            900: "hsl(var(--academic-slate-900))",
-          },
-          indigo: {
-            50: "hsl(var(--academic-indigo-50))",
-            100: "hsl(var(--academic-indigo-100))",
-            600: "hsl(var(--academic-indigo-600))",
-            700: "hsl(var(--academic-indigo-700))",
-          },
+        sky: {
+          dawn: "hsl(var(--sky-dawn))",
+          light: "hsl(var(--sky-light))",
+          blue: "hsl(var(--sky-blue))",
+          deep: "hsl(var(--sky-deep))",
+          twilight: "hsl(var(--sky-twilight))",
+        },
+        cloud: {
+          white: "hsl(var(--cloud-white))",
+          light: "hsl(var(--cloud-light))",
+          soft: "hsl(var(--cloud-soft))",
+        },
+        sunset: {
+          orange: "hsl(var(--sunset-orange))",
+          pink: "hsl(var(--sunset-pink))",
+          purple: "hsl(var(--sunset-purple))",
+        },
+        text: {
+          primary: "hsl(var(--text-primary))",
+          secondary: "hsl(var(--text-secondary))",
+          muted: "hsl(var(--text-muted))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

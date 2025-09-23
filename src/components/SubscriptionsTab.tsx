@@ -178,18 +178,21 @@ const SubscriptionsTab = () => {
   };
 
   const renderEmptyState = () => (
-    <Card className="shadow-soft">
+    <Card className="shadow-soft border-sky-light/20 bg-gradient-to-br from-cloud-white to-sky-light/10">
       <CardContent className="flex flex-col items-center justify-center py-16">
-        <div className="w-16 h-16 bg-academic-indigo-100 rounded-full flex items-center justify-center mb-4">
-          <MessageCircle className="w-8 h-8 text-academic-indigo-600" />
+        <div className="w-16 h-16 bg-gradient-to-br from-sunset-pink/20 to-sunset-orange/20 rounded-full flex items-center justify-center mb-4 shadow-soft">
+          <MessageCircle className="w-8 h-8 text-sunset-orange" />
         </div>
-        <h3 className="text-lg font-semibold text-academic-slate-900 mb-2">
+        <h3 className="text-lg font-semibold text-text-primary mb-2">
           No subscriptions yet
         </h3>
-        <p className="text-academic-slate-600 text-center mb-6 max-w-md">
+        <p className="text-text-secondary text-center mb-6 max-w-md">
           Create your first subscription to receive regular digests of the latest papers in your field.
         </p>
-        <Button onClick={() => setShowNewSubscription(true)}>
+        <Button 
+          onClick={() => setShowNewSubscription(true)}
+          className="bg-gradient-to-r from-sky-blue to-sky-deep hover:from-sky-deep hover:to-sky-twilight transition-smooth shadow-soft hover:shadow-glow"
+        >
           <Plus className="w-4 h-4 mr-2" />
           Create subscription
         </Button>
@@ -241,28 +244,28 @@ const SubscriptionsTab = () => {
       {subscriptions.length === 0 ? (
         renderEmptyState()
       ) : (
-        <Card className="shadow-card">
+        <Card className="shadow-card border-sky-light/20 bg-gradient-to-br from-cloud-white to-sky-light/10">
           <CardContent className="p-0">
             <Table>
               <TableHeader>
-                <TableRow className="border-academic-slate-600/10">
-                  <TableHead className="text-academic-slate-900 font-medium">Topic</TableHead>
-                  <TableHead className="text-academic-slate-900 font-medium">Frequency</TableHead>
-                  <TableHead className="text-academic-slate-900 font-medium">Channel</TableHead>
-                  <TableHead className="text-academic-slate-900 font-medium">Next Delivery</TableHead>
-                  <TableHead className="text-academic-slate-900 font-medium">Actions</TableHead>
+                <TableRow className="border-sky-light/20">
+                  <TableHead className="text-text-primary font-medium">Topic</TableHead>
+                  <TableHead className="text-text-primary font-medium">Frequency</TableHead>
+                  <TableHead className="text-text-primary font-medium">Channel</TableHead>
+                  <TableHead className="text-text-primary font-medium">Next Delivery</TableHead>
+                  <TableHead className="text-text-primary font-medium">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {subscriptions.map((subscription) => (
-                  <TableRow key={subscription.id} className="border-academic-slate-600/10">
+                  <TableRow key={subscription.id} className="border-sky-light/20 hover:bg-sky-light/20 transition-smooth">
                     <TableCell>
                       <div className="flex items-center gap-2">
-                        <span className="font-medium text-academic-slate-900">
+                        <span className="font-medium text-text-primary">
                           {subscription.query}
                         </span>
                         {!subscription.active && (
-                          <Badge variant="secondary" className="text-xs">
+                          <Badge variant="secondary" className="text-xs bg-sunset-orange/20 text-sunset-orange border-sunset-orange/30">
                             Paused
                           </Badge>
                         )}
@@ -271,20 +274,20 @@ const SubscriptionsTab = () => {
                     <TableCell>
                       <Badge 
                         variant="outline" 
-                        className="capitalize bg-academic-indigo-50 text-academic-indigo-700 border-academic-indigo-600/20"
+                        className="capitalize bg-gradient-to-r from-sky-light/50 to-accent/50 text-sky-deep border-sky-light/30"
                       >
                         {subscription.frequency}
                       </Badge>
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-1">
-                        <MessageCircle className="w-4 h-4 text-academic-slate-600" />
-                        <span className="text-academic-slate-600 capitalize">
+                        <MessageCircle className="w-4 h-4 text-sky-deep" />
+                        <span className="text-text-secondary capitalize">
                           {subscription.channel}
                         </span>
                       </div>
                     </TableCell>
-                    <TableCell className="text-academic-slate-600">
+                    <TableCell className="text-text-secondary">
                       {subscription.active ? formatDate(subscription.next_run_at) : "Paused"}
                     </TableCell>
                     <TableCell>
@@ -293,7 +296,7 @@ const SubscriptionsTab = () => {
                           variant="outline"
                           size="sm"
                           onClick={() => handleSendNow(subscription)}
-                          className="flex items-center gap-1"
+                          className="flex items-center gap-1 border-sky-blue/50 text-sky-blue hover:bg-sky-blue/10 hover:border-sky-blue transition-smooth"
                         >
                           <Send className="w-3 h-3" />
                           Send now
@@ -303,7 +306,7 @@ const SubscriptionsTab = () => {
                           variant="outline"
                           size="sm"
                           onClick={() => handleToggleActive(subscription.id, !subscription.active)}
-                          className="flex items-center gap-1"
+                          className="flex items-center gap-1 border-sky-twilight/50 text-sky-twilight hover:bg-sky-twilight/10 hover:border-sky-twilight transition-smooth"
                         >
                           {subscription.active ? (
                             <>
@@ -323,21 +326,23 @@ const SubscriptionsTab = () => {
                             <Button
                               variant="outline"
                               size="sm"
-                              className="text-destructive hover:text-destructive hover:bg-destructive/5"
+                              className="text-destructive hover:text-destructive hover:bg-destructive/5 border-destructive/30 hover:border-destructive/50 transition-smooth"
                             >
                               <Trash2 className="w-3 h-3" />
                             </Button>
                           </AlertDialogTrigger>
-                          <AlertDialogContent>
+                          <AlertDialogContent className="border-sky-light/30 bg-gradient-to-br from-cloud-white to-sky-light/10">
                             <AlertDialogHeader>
-                              <AlertDialogTitle>Delete subscription</AlertDialogTitle>
-                              <AlertDialogDescription>
+                              <AlertDialogTitle className="text-text-primary">Delete subscription</AlertDialogTitle>
+                              <AlertDialogDescription className="text-text-secondary">
                                 Are you sure you want to delete the subscription for "{subscription.query}"? 
                                 This action cannot be undone.
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+                              <AlertDialogCancel className="border-sky-light/50 text-text-secondary hover:bg-sky-light/20">
+                                Cancel
+                              </AlertDialogCancel>
                               <AlertDialogAction
                                 onClick={() => handleDelete(subscription.id)}
                                 className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
